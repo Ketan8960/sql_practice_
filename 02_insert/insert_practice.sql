@@ -96,3 +96,91 @@ DROP CHECK chk_salary;
 
 ALTER TABLE employees
 DROP INDEX uk_department;
+-- ============================================
+-- ALTER TABLE PRACTICE - QUESTIONS 11 TO 20
+-- ============================================
+
+
+-- Q11. Add experience column with CHECK constraint
+-- Question:
+-- Add experience DECIMAL(3,1) and ensure experience is not negative.
+
+ALTER TABLE employees
+ADD COLUMN experience DECIMAL(3,1),
+ADD CHECK (experience >= 0);
+
+
+-- Q12. Drop multiple columns
+-- Question:
+-- Remove phone and joining_date columns.
+
+ALTER TABLE employees
+DROP COLUMN phone,
+DROP COLUMN joining_date;
+
+
+-- Q13. Rename table
+-- Question:
+-- Rename employees to company_employees.
+
+ALTER TABLE employees
+RENAME TO company_employees;
+
+
+-- Q14. Add named CHECK constraint
+-- Question:
+-- Add a CHECK constraint named chk_experience.
+
+ALTER TABLE company_employees
+ADD CONSTRAINT chk_experience
+CHECK (experience >= 0);
+
+
+-- Q15. Drop named CHECK constraint
+-- Question:
+-- Remove the chk_experience constraint.
+
+ALTER TABLE company_employees
+DROP CHECK chk_experience;
+
+
+-- Q16. Add NOT NULL
+-- Question:
+-- Make the email column NOT NULL.
+
+ALTER TABLE company_employees
+MODIFY email VARCHAR(100) NOT NULL;
+
+
+-- Q17. Remove NOT NULL
+-- Question:
+-- Remove NOT NULL from the email column.
+
+ALTER TABLE company_employees
+MODIFY email VARCHAR(100);
+
+
+-- Q18. Add DEFAULT
+-- Question:
+-- Set the default value of department to 'Unknown'.
+
+ALTER TABLE company_employees
+MODIFY department VARCHAR(50) DEFAULT 'Unknown';
+
+
+-- Q19. Remove DEFAULT
+-- Question:
+-- Remove the default value from department.
+
+ALTER TABLE company_employees
+ALTER COLUMN department DROP DEFAULT;
+
+
+-- Q20. Add Foreign Key
+-- Question:
+-- Add a foreign key named fk_employee_department.
+
+ALTER TABLE company_employees
+ADD CONSTRAINT fk_employee_department
+FOREIGN KEY (dept_id)
+REFERENCES departments(dept_id);
