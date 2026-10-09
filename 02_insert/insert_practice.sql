@@ -183,4 +183,96 @@ ALTER COLUMN department DROP DEFAULT;
 ALTER TABLE company_employees
 ADD CONSTRAINT fk_employee_department
 FOREIGN KEY (dept_id)
-REFERENCES departments(dept_id);
+REFERENCES departments(dept_id); 
+
+-- ============================================
+-- ALTER TABLE PRACTICE - QUESTIONS 21 TO 30
+-- ============================================
+
+
+-- Q21. Drop Foreign Key
+-- Question:
+-- Remove the foreign key constraint named
+-- fk_employee_department from company_employees.
+
+ALTER TABLE company_employees
+DROP FOREIGN KEY fk_employee_department;
+
+
+-- Q22. Add Named UNIQUE Constraint
+-- Question:
+-- Add a UNIQUE constraint named uk_employee_email
+-- to prevent duplicate email addresses.
+
+ALTER TABLE company_employees
+ADD CONSTRAINT uk_employee_email UNIQUE (email);
+
+
+-- Q23. Drop UNIQUE Constraint
+-- Question:
+-- Remove the UNIQUE index named uk_employee_email.
+
+ALTER TABLE company_employees
+DROP INDEX uk_employee_email;
+
+
+-- Q24. Add DEFAULT
+-- Question:
+-- Set the default value of status to 'Active'.
+-- The column is VARCHAR(20).
+
+ALTER TABLE company_employees
+MODIFY COLUMN status VARCHAR(20) DEFAULT 'Active';
+
+
+-- Q25. Add Named CHECK Constraint
+-- Question:
+-- Add a CHECK constraint named chk_employee_salary
+-- to ensure salary is greater than 0.
+
+ALTER TABLE company_employees
+ADD CONSTRAINT chk_employee_salary
+CHECK (salary > 0);
+
+
+-- Q26. Drop CHECK Constraint
+-- Question:
+-- Remove the CHECK constraint named chk_employee_salary.
+
+ALTER TABLE company_employees
+DROP CHECK chk_employee_salary;
+
+
+-- Q27. Add NOT NULL
+-- Question:
+-- Make the phone column NOT NULL.
+-- The column is VARCHAR(15).
+
+ALTER TABLE company_employees
+MODIFY COLUMN phone VARCHAR(15) NOT NULL;
+
+
+-- Q28. Remove NOT NULL
+-- Question:
+-- Remove NOT NULL from phone while keeping
+-- its data type as VARCHAR(15).
+
+ALTER TABLE company_employees
+MODIFY COLUMN phone VARCHAR(15);
+
+
+-- Q29. Add DEFAULT
+-- Question:
+-- Set the default value of city to 'Pune'.
+-- The column is VARCHAR(50).
+
+ALTER TABLE company_employees
+MODIFY COLUMN city VARCHAR(50) DEFAULT 'Pune';
+
+
+-- Q30. Remove DEFAULT
+-- Question:
+-- Remove the default value from city.
+
+ALTER TABLE company_employees
+ALTER COLUMN city DROP DEFAULT;
