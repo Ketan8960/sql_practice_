@@ -94,3 +94,104 @@ WHERE department = 'HR'
 UPDATE employees
 SET salary = salary * 1.05
 WHERE department IN ('HR', 'Finance');
+
+
+-- ============================================
+-- SQL PRACTICE: INSERT, UPDATE, DELETE
+-- QUESTIONS 11 TO 20
+-- ============================================
+
+
+-- Q11. INSERT WITH SELECTED COLUMNS
+-- Question:
+-- Insert Neha with emp_id 106 and department HR.
+-- Do not provide a salary value.
+
+INSERT INTO employees (emp_id, first_name, department)
+VALUES (106, 'Neha', 'HR');
+
+
+-- Q12. UPDATE USING IS NULL
+-- Question:
+-- Set Neha's salary to 30000 only if her
+-- current salary is NULL.
+
+UPDATE employees
+SET salary = 30000
+WHERE salary IS NULL
+  AND first_name = 'Neha';
+
+
+-- Q13. UPDATE USING BETWEEN
+-- Question:
+-- Increase salary by 2000 for employees whose
+-- current salary is between 30000 and 40000,
+-- inclusive.
+
+UPDATE employees
+SET salary = salary + 2000
+WHERE salary BETWEEN 30000 AND 40000;
+
+
+-- Q14. DELETE USING NOT IN
+-- Question:
+-- Delete employees whose department is neither
+-- IT nor HR.
+
+DELETE FROM employees
+WHERE department NOT IN ('IT', 'HR');
+
+
+-- Q15. DELETE USING LIKE (STARTS WITH)
+-- Question:
+-- Delete employees whose first name starts with A.
+
+DELETE FROM employees
+WHERE first_name LIKE 'A%';
+
+
+-- Q16. UPDATE USING LIKE (STARTS WITH)
+-- Question:
+-- Update the department to IT for employees
+-- whose first name starts with R.
+
+UPDATE employees
+SET department = 'IT'
+WHERE first_name LIKE 'R%';
+
+
+-- Q17. DELETE USING LIKE (ENDS WITH)
+-- Question:
+-- Delete employees whose first name ends with a.
+
+DELETE FROM employees
+WHERE first_name LIKE '%a';
+
+
+-- Q18. UPDATE USING LIKE (CONTAINS)
+-- Question:
+-- Update the department to Finance for employees
+-- whose first name contains the letter e.
+
+UPDATE employees
+SET department = 'Finance'
+WHERE first_name LIKE '%e%';
+
+
+-- Q19. DELETE USING LIKE (CONTAINS)
+-- Question:
+-- Delete employees whose first name contains
+-- the letter a anywhere.
+
+DELETE FROM employees
+WHERE first_name LIKE '%a%';
+
+
+-- Q20. UPDATE USING NOT IN
+-- Question:
+-- Set salary to 35000 for employees whose
+-- department is neither IT nor Finance.
+
+UPDATE employees
+SET salary = 35000
+WHERE department NOT IN ('IT', 'Finance');
