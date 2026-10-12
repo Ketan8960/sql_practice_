@@ -97,3 +97,68 @@ WHERE salary BETWEEN 30000 AND 45000;
 SELECT first_name, salary
 FROM employees
 WHERE salary NOT BETWEEN 30000 AND 45000;
+
+
+-- Question 11: Display first_name and salary where salary is NULL
+SELECT first_name, salary
+FROM employees
+WHERE salary IS NULL;
+
+
+-- Question 12: Display first_name and salary where salary is NOT NULL
+SELECT first_name, salary
+FROM employees
+WHERE salary IS NOT NULL;
+
+
+-- Question 13: Display first_name and department of employees whose first name starts with 'A'
+SELECT first_name, department
+FROM employees
+WHERE first_name LIKE 'A%';
+
+
+-- Question 14: Display first_name and salary of employees whose first name ends with 'a'
+SELECT first_name, salary
+FROM employees
+WHERE first_name LIKE '%a';
+
+
+-- Question 15: Display first_name and department of employees whose first name contains 'e'
+SELECT first_name, department
+FROM employees
+WHERE first_name LIKE '%e%';
+
+
+-- Question 16: Display first_name, department, and salary of IT employees,
+-- sorted by salary from highest to lowest
+SELECT first_name, department, salary
+FROM employees
+WHERE department = 'IT'
+ORDER BY salary DESC;
+
+
+-- Question 17: Display unique departments of employees whose salary is greater than 40000
+SELECT DISTINCT department
+FROM employees
+WHERE salary > 40000;
+
+
+-- Question 18: Display all employees sorted by department ascending
+-- and salary descending within each department
+SELECT first_name, department, salary
+FROM employees
+ORDER BY department ASC, salary DESC;
+
+
+-- Question 19: Display all unique departments in alphabetical order
+SELECT DISTINCT department
+FROM employees
+ORDER BY department ASC;
+
+
+-- Question 20: Display unique departments of employees whose salary is greater than 30000,
+-- sorted alphabetically
+SELECT DISTINCT department
+FROM employees
+WHERE salary > 30000
+ORDER BY department ASC;
