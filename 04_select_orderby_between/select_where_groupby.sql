@@ -162,3 +162,82 @@ SELECT DISTINCT department
 FROM employees
 WHERE salary > 30000
 ORDER BY department ASC;
+
+-- Question 21: Display employees earning between 30000 and 50000,
+-- sorted by salary from lowest to highest
+SELECT first_name, department, salary
+FROM employees
+WHERE salary BETWEEN 30000 AND 50000
+ORDER BY salary ASC;
+
+
+-- Question 22: Display employees who do not work in the IT department,
+-- sorted by salary from highest to lowest
+SELECT first_name, department, salary
+FROM employees
+WHERE department NOT IN ('IT')
+ORDER BY salary DESC;
+
+
+-- Question 23: Display unique departments of employees earning
+-- between 30000 and 50000, sorted alphabetically
+SELECT DISTINCT department
+FROM employees
+WHERE salary BETWEEN 30000 AND 50000
+ORDER BY department ASC;
+
+
+-- Question 24: Display employees whose first name starts with 'S',
+-- sorted by salary from highest to lowest
+SELECT first_name, department, salary
+FROM employees
+WHERE first_name LIKE 'S%'
+ORDER BY salary DESC;
+
+
+-- Question 25: Display HR or Finance employees,
+-- sorted by salary from lowest to highest
+SELECT first_name, department, salary
+FROM employees
+WHERE department = 'HR' OR department = 'Finance'
+ORDER BY salary ASC;
+
+
+-- Question 26: Display IT, HR, or Finance employees,
+-- sorted by salary from highest to lowest
+SELECT first_name, department, salary
+FROM employees
+WHERE department IN ('IT', 'HR', 'Finance')
+ORDER BY salary DESC;
+
+
+-- Question 27: Display employees whose salary is NULL,
+-- sorted by first name alphabetically
+SELECT first_name, department, salary
+FROM employees
+WHERE salary IS NULL
+ORDER BY first_name ASC;
+
+
+-- Question 28: Display employees whose salary is NOT NULL,
+-- sorted by salary from lowest to highest
+SELECT first_name, department, salary
+FROM employees
+WHERE salary IS NOT NULL
+ORDER BY salary ASC;
+
+
+-- Question 29: Display unique departments of employees whose
+-- first name contains 'a', sorted alphabetically
+SELECT DISTINCT department
+FROM employees
+WHERE first_name LIKE '%a%'
+ORDER BY department ASC;
+
+
+-- Question 30: Display unique departments of employees earning
+-- between 40000 and 60000, sorted alphabetically
+SELECT DISTINCT department
+FROM employees
+WHERE salary BETWEEN 40000 AND 60000
+ORDER BY department ASC;
