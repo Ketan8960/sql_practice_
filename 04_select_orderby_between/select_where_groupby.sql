@@ -241,3 +241,69 @@ SELECT DISTINCT department
 FROM employees
 WHERE salary BETWEEN 40000 AND 60000
 ORDER BY department ASC;
+
+-- Question 30: Display each department and the number of employees
+SELECT department, COUNT(emp_id) AS total_employees
+FROM employees
+GROUP BY department;
+
+
+-- Question 31: Display each department and its total salary
+SELECT department, SUM(salary) AS total_salary
+FROM employees
+GROUP BY department;
+
+
+-- Question 32: Display each department and its average salary
+SELECT department, AVG(salary) AS average_salary
+FROM employees
+GROUP BY department;
+
+
+-- Question 33: Display each department and its highest salary
+SELECT department, MAX(salary) AS highest_salary
+FROM employees
+GROUP BY department;
+
+
+-- Question 34: Display each department and its lowest salary
+SELECT department, MIN(salary) AS lowest_salary
+FROM employees
+GROUP BY department;
+
+
+-- Question 35: Count employees earning more than 40000 in each department
+SELECT department, COUNT(emp_id) AS total_employees
+FROM employees
+WHERE salary > 40000
+GROUP BY department;
+
+
+-- Question 36: Display departments having more than 2 employees
+SELECT department, COUNT(emp_id) AS total_employees
+FROM employees
+GROUP BY department
+HAVING total_employees > 2;
+
+
+-- Question 37: Display departments whose total salary is greater than 100000
+SELECT department, SUM(salary) AS total_salary
+FROM employees
+GROUP BY department
+HAVING total_salary > 100000;
+
+
+-- Question 38: Display departments whose average salary is greater than 40000
+SELECT department, AVG(salary) AS average_salary
+FROM employees
+GROUP BY department
+HAVING average_salary > 40000;
+
+
+-- Question 39: Display departments having more than 2 employees
+-- who earn more than 30000
+SELECT department, COUNT(emp_id) AS emp_count
+FROM employees
+WHERE salary > 30000
+GROUP BY department
+HAVING emp_count > 2;
